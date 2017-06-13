@@ -15,6 +15,9 @@
 
 
 # instance methods
+- `__init__(self, name)`
+    - Creates Player object with given name and two Ocean objects.
+    - returns: None
 - `choose_initial_ships_position(self)`
     - Takes ships positions from user.
     - returns: dictionary with ships names as keys and tupples of given_positions as values

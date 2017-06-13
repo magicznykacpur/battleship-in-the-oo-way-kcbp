@@ -1,7 +1,7 @@
 # Battleship in the OOP way
 
 ## The story
-*Battleship (also Battleships or Sea Battle) is a guessing game
+  *Battleship (also Battleships or Sea Battle) is a guessing game
 for two players. It is played on ruled grids (paper or board) on
 which the players' fleets of ships (including battleships) are marked.
 The locations of the fleet are concealed from the other player.
@@ -11,14 +11,14 @@ and the objective of the game is to destroy the opposing player's fleet.*
 # Specification
 
 
-##__main.py__
+## __main.py__
 
 
 ## __square.py__
-### class description
+#### class description
     Holds data for each square.
 
-### instance attributes
+#### instance attributes
 - `is_marked`
     - data: bool
     - description: indicates if square is marked or not
@@ -29,32 +29,33 @@ and the objective of the game is to destroy the opposing player's fleet.*
     - data: int
     - description: indicates on which column square lies
 
+#### instance methods
+- `__init__(self, row, column)`
+    - Create unmarked Square object with given position.
+
 
 ## __ship.py__
-### class description
+#### class description
     Holds data needed for proper ship description and methods for management.
 
-### class atrributes
+#### class atrributes
 - `ships_types`
     - data: dict
     - description: keys with ships names and values with corresponding lenghts.
     Used for length instance attribute creation.
 
-### instance attributes
+#### instance attributes
 - `name`
     - data: str
     - description: one of 5 possible ship names.
 - `positions`
     - data: tuple of Square objects
     - description: carries all squares occupied by ship.
-- `length`
-    - data: int
-    - description: indicates how many squares objects ship occupied.
 - `is_vertical`
     - data: bool
     - description: indicates ship direction. True if vertical, False if horizontal.
 
-### instance methods
+#### instance methods
 - `__init__(self, name, positions)`
     - Creates Ship object with name and position.
 - `is_sunk(self)`
@@ -63,10 +64,10 @@ and the objective of the game is to destroy the opposing player's fleet.*
 
 
 ## __ocean.py__
-### class description
+#### class description
     contains all ships and game board and handles output
 
-### attributes
+#### attributes
 - `ships`
     - data: list of Ship objects
     - description: holds all ships to append them to the board.
@@ -74,7 +75,7 @@ and the objective of the game is to destroy the opposing player's fleet.*
     - data: list of lists
     - description: current board state.
 
-### instance methods
+#### instance methods
 - `__init__(self)`
     - Creates object with empty list as an atrribute.
 - `__str__(self)`
@@ -86,10 +87,10 @@ and the objective of the game is to destroy the opposing player's fleet.*
 
 
 ## __player.md__
-### class description
+#### class description
     Holds players attributes
 
-### instance attributes
+#### instance attributes
 - `name`
     - data: str
     - description: players name.
@@ -100,7 +101,10 @@ and the objective of the game is to destroy the opposing player's fleet.*
     - data: Ocean class object
     - description: enemy board with hits and misses.
 
-### instance methods
+#### instance methods
+- `__init__(self, name)`
+    - Creates Player object with given name and two Ocean objects.
+    - returns: None
 - `choose_initial_ships_position(self)`
     - Takes ships positions from user.
     - returns: dictionary with ships names as keys and tupples of given_positions as values
